@@ -5,51 +5,61 @@ import Rotator from './Rotator';
 import data from './data.json'
 import Vector from './assets/Vector.png';
 import Vector2 from './assets/Vector2.png'
-import {map} from 'lodash';
+import {screenSize} from './ScreenSize'
 
 const firstGroup = data[0].quotes
 const secondGroup = data[1].quotes
-console.log(data[0].quotes)
-console.log(map(firstGroup, 'message', 'attribution'))
+console.log('secondGroup', secondGroup.message)
 
 function App() {
   return (
     <div>
-      <Card className="App">
+      <Card 
+        className="App" 
+        marginBottom={70} 
+        desktopMarginBottom={178}
+      >
         <Image 
           src={Vector}
-          left={67.88} 
+          right={.01}
           top={1.69}
           bottom={58.67}
         />
-          {/* <Rotator group={map(firstGroup, 'message')} /> */}
-        <Rotator group={firstGroup[0]} />
+        <Rotator group={firstGroup}/>
       </Card>
       <Card>
         <Image 
           src={Vector2} 
-          right={67} 
-          top={49.2}
-          bottom={11.62}
+          right={75} 
+          bottom={-21}
+          left={0.1}
         />
-        <Rotator group={secondGroup[0]}/> 
+        <Rotator group={secondGroup} blueFont/> 
       </Card>
     </div>
   );
 }
 
 const Card = styled.div`
-  position: relative;
-   height: 100vh;
+position: relative;
+// height: 40vh;
+margin-bottom: ${prop => prop.marginBottom ? prop.marginBottom : 0}px;
+@media ${screenSize.desktop} {
+  height: 815px;
+  margin-bottom: ${prop => prop.desktopMarginBottom ? prop.desktopMarginBottom : 0}px
+};
 `;
 
 const Image = styled.img`
   position: absolute;
-  left: ${prop => prop.left ? prop.left : 0}%;
-  right: ${prop => prop.right ? prop.right : 0}%;
-  top: ${prop => prop.top ? prop.top : 0}%;
-  bottom: ${prop => prop.bottom ? prop.bottom : 0}%;
-  height: 860px;
+  left: ${prop => prop.left ? prop.left : null}%;
+  right: ${prop => prop.right ? prop.right : null}%;
+  top: ${prop => prop.top ? prop.top : null}%;
+  bottom: ${prop => prop.bottom ? prop.bottom : null}%;
+  height: 400px;
+  @media ${screenSize.desktop} {
+    height: 800px;
+  };
 `;
 
 export default App;
