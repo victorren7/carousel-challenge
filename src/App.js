@@ -16,8 +16,8 @@ function App() {
     <div>
       <Card 
         className="App" 
-        marginBottom={70} 
-        desktopMarginBottom={178}
+        // marginBottom={70} 
+        // desktopMarginBottom={178}
       >
         <Image 
           src={Vector}
@@ -27,11 +27,12 @@ function App() {
         />
         <Rotator group={firstGroup}/>
       </Card>
+      <Space/>
       <Card>
         <Image 
           src={Vector2} 
           right={75} 
-          bottom={-21}
+          bottom={3}
           left={0.1}
         />
         <Rotator group={secondGroup} blueFont/> 
@@ -41,13 +42,14 @@ function App() {
 }
 
 const Card = styled.div`
-position: relative;
-// height: 40vh;
-margin-bottom: ${prop => prop.marginBottom ? prop.marginBottom : 0}px;
-@media ${screenSize.desktop} {
-  height: 815px;
-  margin-bottom: ${prop => prop.desktopMarginBottom ? prop.desktopMarginBottom : 0}px
-};
+  position: relative;
+  @media ${screenSize.desktop} {
+    height: 815px;
+  };
+`;
+
+const Space = styled.div`
+  padding: 170px 0;
 `;
 
 const Image = styled.img`
