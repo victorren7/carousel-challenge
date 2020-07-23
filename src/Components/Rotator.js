@@ -35,7 +35,8 @@ function Rotator({group, blueFont, title}) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: <img src={back}   alt='back-arrow'/>,
+    slidecount: 4,
+    prevArrow: <img src={back} alt='back-arrow'/>,
     nextArrow: <img src={next} alt='next-arrow'/>
   };
 

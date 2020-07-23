@@ -25,7 +25,7 @@ function App() {
             top={1.69}
             bottom={58.67}
           />
-          <Rotator title={firstSectionTitle} group={firstGroup} />
+          <Rotator title={firstSectionTitle}  group={firstGroup} />
           <Link  to='/all-quotes'>
             View All
           </Link>
