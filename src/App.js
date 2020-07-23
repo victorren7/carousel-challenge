@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import AllQuotes from './Components/Allquotes';
-import Rotator from './Components/Rotator';
-import {Link, BrowserRouter, Route, Switch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components';
 import data from './data.json'
-import {screenSize} from './ScreenSize';
+import {screenSize} from './utils/ScreenSize';
 import Vector from './assets/Vector.png';
 import Vector2 from './assets/Vector2.png';
+import Carousel from './Components/Carousel';
 
 const firstSectionTitle = data[0].section_title
 const secondSectionTitle = data[1].section_title
-const firstGroup = data[0].quotes
-const secondGroup = data[1].quotes
+export const firstGroup = data[0].quotes
+export const secondGroup = data[1].quotes
 
-function App() {
-  return (
-    <BrowserRouter>
+class App extends Component {
+  
+  render() {
+    return (
       <div>
         <Card>
           <Image 
@@ -25,11 +25,10 @@ function App() {
             top={1.69}
             bottom={58.67}
           />
-          <Rotator title={firstSectionTitle}  group={firstGroup} />
-          <Link  to='/all-quotes'>
-            View All
-          </Link>
-
+          <Carousel title={firstSectionTitle}  group={firstGroup} />
+            <LinkStyle to='/all-quotes'>
+              VIEW ALL
+            </LinkStyle>
         </Card>
         <Space/>
         <Card>
@@ -39,15 +38,12 @@ function App() {
             bottom={6}
             left={0.1}
           />
-          <Rotator title={secondSectionTitle} group={secondGroup} blueFont /> 
+          <Carousel title={secondSectionTitle} group={secondGroup} blueFont /> 
         </Card>
-        <Switch>
-          <Route path='/all-quotes' component={AllQuotes} exact/>
-        </Switch>
       </div>
-    </BrowserRouter>
-  );
-}
+    );
+  };
+};
 
 const Card = styled.div`
   position: relative;
@@ -76,11 +72,24 @@ const Image = styled.img`
   };
 `;
 
-const Anchor = styled(Link)`
-  padding-top: 20px;
-  width: 155px;
-  height: 55px;
-  cursor: pointer;
+const LinkStyle = styled(Link)`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 100px;
+  height: 35px;
+  font-size: 13px;
+  margin: 50px auto 0;
+  border-radius: 3px;
+  background-color: #000;
+  color: #fff;
+  @media ${screenSize.desktop} {
+    width: 130px;
+    height: 55px;
+    font-size: 18px;
+  };
 `;
 
 export default App;

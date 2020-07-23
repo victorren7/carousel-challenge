@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import {screenSize} from '../ScreenSize';
-import next from '../assets/next.svg';
-import back from '../assets/back.svg';
+import {screenSize} from '../utils/ScreenSize';
+import SvgBack from '../assets/SvgBack';
+import SvgNext from '../assets/SvgNext';
 
-function Rotator({group, blueFont, title}) {
+function Carousel({group, blueFont, title}) {
 
   const quotes = Array.from(group)
   const quoteItems = quotes.map((quote, index) =>
@@ -36,8 +36,8 @@ function Rotator({group, blueFont, title}) {
     slidesToShow: 1,
     slidesToScroll: 1,
     slidecount: 4,
-    prevArrow: <img src={back} alt='back-arrow'/>,
-    nextArrow: <img src={next} alt='next-arrow'/>
+    prevArrow: <SvgBack/>,
+    nextArrow: <SvgNext/>
   };
 
   return(
@@ -45,7 +45,6 @@ function Rotator({group, blueFont, title}) {
       <SliderStyle {...settings}>
         {quoteItems}
       </SliderStyle>
-
     </div>
   )
 };
@@ -81,8 +80,9 @@ const Grid = styled.div`
 `
 
 const Wrapper = styled.div`
-  position: relative;
   display: grid;
+  position: relative;
+  margin: auto;
   grid-gap: 10px;
   @media ${screenSize.desktop} { 
     width: 95%;
@@ -110,7 +110,7 @@ const Message = styled.p`
 const Author = styled.p`
   font-size: 18px;
   @media ${screenSize.desktop} { 
-    font-size: 42px;
+    font-size: 35px;
     width: 60%;
     margin: auto;
   };
@@ -120,4 +120,4 @@ const HR = styled.hr`
   width: 20px;
 `;
 
-export default Rotator;
+export default Carousel;
