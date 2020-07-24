@@ -46,7 +46,7 @@ function Carousel({group, blueFont, title}) {
         {quoteItems}
       </SliderStyle>
     </div>
-  )
+  );
 };
 
 const SliderStyle = styled(Slider)`

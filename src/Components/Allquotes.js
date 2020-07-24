@@ -1,9 +1,7 @@
 import React from 'react';
-import {firstGroup, secondGroup} from '../App';
 import {withRouter} from 'react-router-dom';
 import styled from 'styled-components';
-
-console.log(secondGroup)
+import {firstGroup, secondGroup} from '../App';
 
 function AllQuoates() {
   const firstQuotes = firstGroup.map((quote, index) => 
@@ -38,7 +36,7 @@ function AllQuoates() {
       </Grid>
     </Grid>
 
-  )
+  );
 };
 
 const Grid = styled.div`

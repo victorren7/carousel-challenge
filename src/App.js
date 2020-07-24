@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-import {Link} from 'react-router-dom'
 import styled from 'styled-components';
-import data from './data.json'
+import {Link} from 'react-router-dom'
+import Carousel from './Components/Carousel';
 import {screenSize} from './utils/ScreenSize';
+import data from './data.json'
 import Vector from './assets/Vector.png';
 import Vector2 from './assets/Vector2.png';
-import Carousel from './Components/Carousel';
 
 const firstSectionTitle = data[0].section_title
 const secondSectionTitle = data[1].section_title
